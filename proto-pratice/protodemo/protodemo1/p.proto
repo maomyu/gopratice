@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+
+import "any.proto";
+
+message CallRequest {
+  string greeting = 1;
+  map<string, string> infos  = 2;
+}
+
+message CallResponse {
+  string reply = 1;
+  repeated google.protobuf.Any details = 2;
+}
+
+message Res {
+    string reply = 4;
+}
+service CallService {
+  rpc SayCall(CallRequest) returns (CallResponse){}
+}
